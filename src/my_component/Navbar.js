@@ -7,9 +7,9 @@ export default function Navbar(props) {
     <nav className={`navbar navbar-expand-lg bg-body-tertiary navbar-${props.mode} bg-${props.mode}`}>
       <div className="container-fluid">
         <span className="logo ms-1"></span>
-        <a className="navbar-brand p-0" href="/">
+        <span className="navbar-brand p-0" href="/">
           {props.title}
-        </a>
+        </span>
         <button
           className="navbar-toggler"
           type="button"
@@ -62,9 +62,7 @@ export default function Navbar(props) {
               className="form-check-label"
               htmlFor="flexSwitchCheckDefault"
             >
-              {`Enable ${
-              props.mode === "light" ? "Dark" : "Light"
-            } Mode`}
+              Enable {props.mode === "light" ? "Dark" : "Light"} Mode
             </label>
           </div>
         </div>
