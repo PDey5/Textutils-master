@@ -19,7 +19,7 @@ export default function TextForms(props) {
   };
   const handleOnClick_3 = () => {
     // console.log("Onclick is invoked");
-    document.getElementById('show').innerHTML= 0;
+    document.getElementById("show").innerHTML = 0;
     let newText = "";
     setText(newText);
   };
@@ -39,17 +39,7 @@ export default function TextForms(props) {
     text.setSelectionRange(0, 99999);
     navigator.clipboard.writeText(text.value);
   };
-  const handleOnClick_6 = () => {
-    let newText = navigator.clipboard
-      .readText()
-      .then(
-        (clipText) =>
-          (document.getElementById("exampleFormControlTextarea1").value =
-            clipText)
-      );
 
-    setText(newText);
-  };
   const handleOnChange = (e) => {
     // console.log("OnChange is invoked");
     setText(e.target.value);
@@ -60,7 +50,7 @@ export default function TextForms(props) {
     var words = document.getElementById("exampleFormControlTextarea1").value;
 
     // Initialize the word counter
-    let count = 0;
+    var count = 0;
 
     // Split the words on each
     // space character
@@ -70,13 +60,13 @@ export default function TextForms(props) {
     // increase the counter when
     // each split word is not empty
     for (var i = 0; i < split.length; i++) {
-      if (split[i] != "") {
+      if (split[i] !== "") {
         count += 1;
       }
     }
 
     // Display it as output
-    document.getElementById("show").innerHTML =  count;
+    document.getElementById("show").innerHTML = count;
   }
 
   return (
@@ -86,6 +76,7 @@ export default function TextForms(props) {
         <div className="mb-3">
           <textarea
             onInput={countWord}
+            onClick={countWord}
             className="form-control perfecttense mb-1"
             id="exampleFormControlTextarea1"
             rows="10"
@@ -112,21 +103,9 @@ export default function TextForms(props) {
           </button>
           <button
             className="btn btn-primary mx-1 my-1"
-            onClick={handleOnClick_4}
-          >
-            Remove Extra Spaces
-          </button>
-          <button
-            className="btn btn-primary mx-1 my-1"
             onClick={handleOnClick_5}
           >
             Copy
-          </button>
-          <button
-            className="btn btn-primary mx-1 my-1"
-            onClick={handleOnClick_6}
-          >
-            Paste
           </button>
 
           <button
@@ -134,6 +113,12 @@ export default function TextForms(props) {
             onClick={handleOnClick_3}
           >
             Clear
+          </button>
+          <button
+            className="btn btn-primary mx-1 my-1"
+            onClick={handleOnClick_4}
+          >
+            Remove Extra Spaces
           </button>
         </div>
       </div>
